@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Book Manager Home</title>
+    </head>
+    
+    <body>
+    <h1>Book list</h1>
+    <h3><a href="/bookAdd.html" th:href="@{/book/add}">Add Book</a></h3>
+    <table border="1">
+      <tr>
+        <th>
+        	<form action="/" method="post">
+        		<a href="../home.html" th:href="@{/book}">idBook</a>
+        	</form>
+        </th>
+        <th>
+        	<form action="ReverseAlphabet" method="post">
+        		<a href="/ReverseAlphabet" th:href="@{/book/ReverseAlphabet}">Title</a>
+        	</form>
+        </th>
+        <th>
+        	<form action="GroupByAuthor" method="post">
+        		<a href="/GroupByAuthor" th:href="@{/book/GroupByAuthor}">Author</a>
+        	</form>
+        </th>
+        <th>Description</th>
+      </tr>
+      <tr th:each="book : ${listBooks}">
+			        <td th:text="${book.idBook}">id</td>
+			        <td th:text="${book.title}">title</td>
+			        <td th:text="${book.author}">author</td>
+			        <td th:text="${book.description}">description</td>
+		      	</tr>
+    </table>
+  </body>
+</html>
